@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+
+<script>
+
+/*function comprobar_palindromo(palabra){
+	var matriz_palabra=Array.from(palabra);
+	var matriz_palabra2=matriz_palabra.slice();
+	var matriz_invertida=matriz_palabra.reverse();
+	alert(matriz_palabra2 + matriz_invertida);
+	var es_palindromo=true;
+	for(var i=0;i<palabra.length;i++){
+		if(matriz_palabra2[i]!=matriz_invertida[i]){
+			es_palindromo=false;
+			}
+		return es_palindromo
+		}
+	
+	}*/
+function comprobar_palindromo(palabra){
+	var palabra_invertida="";
+	var es_palindromo;
+	
+	for(var i=palabra.length-1;i>=0;i--){  //ciclo for que recorre la palabra al revés
+		palabra_invertida= palabra_invertida+palabra[i];  //Almacena la palabra invertida
+		}
+	
+	if(palabra!=palabra_invertida){ //condicional que retorna true o false dependiendo si es palíndromo o no y es almacenado en la llamada a la función llamada palindromo
+		es_palindromo=false;
+		}
+	else{
+		es_palindromo=true;
+		}
+		
+	return es_palindromo;
+	}
+
+var palabra=prompt("Introduzca la pálabra que desea saber si es palíndromo o no: "); //El usuario introduce la palabra a analizar
+palabra=palabra.toLowerCase(); //la convierto a minúsculas para evitar problemas
+
+var palindromo=comprobar_palindromo(palabra); //Llamada a la función que comprueba si es palíndromo o no
+var a;
+if(palindromo==true){  //condicional que devuelve almacenada en una variable a una cadena diciendo si es o no palíndromo
+	a="es palíndromo"
+	}
+else{
+	a="no es  palíndromo"
+	}
+
+
+</script>
+</head>
+
+<body>
+<script>
+	document.write("La palabra " + palabra + " " + a +".");
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+Tiempo aproximado para realizar esta práctica:8h. 
+
+HTML
+-En el head he incorporado el link con la hoja de estilos externa que le da algo de forma a la web y tres etiquetas script para ordenar un poco el código JS.
+	1. Incorporación de la biblioteca JQuery (únicamente he usado la función ready de la misma)
+	2. Función ready con la declaración de variables y las esperas a los eventos que necesito, que llamarán a las funciones.
+	3. Funciones.
+-En el body he incluido un encabezado para el título, una sección donde aparecen dos div, el primero de ellos con todos los input que generan los elementos de formulario deseados, y un segundo div, con el botón para crear el submit del mismo. Decidí separarlos por razones visuales.
+
+JS
+Tres etiquetas de script en el head:
+1. Biblioteca jquery para emplear únicamente la función ready de la misma. ¿Por qué? No quería incluir todo el código JS en la zona inferior del HTML, por ello es necesario el uso de esta función, ya que sin ella, si declaras variables del tipo querySelector o getElementbyID, al ejecutarse el código de arriba a abajo, llega a ese tipo de funciones, y como aun no ha leido el resto del HTML no sabe a que nos estamos refiriendo, y por tanto no lo interpreta.
+Es decir, esta funcion ready lo que hace es cargar primero la página entera, y luego ya se introduce en ella (ya conoce todos los id, clases, etiquetas...).
+2. Declaración de variables.
+	-He almacenado en variables los objetos que surgen de "capturarlos" mediante querySelector (texto, número, email, lista, exclusivas, no exclusiva y botón de envío del formulario).
+	-He declarado dos variables globales dentro de la funcion ready (fuera no funciona por lo mencionado anteriormente) mediante window.nombre de la variable.¿Por qué? Van a ser empleadas dentro de las funciones. Intenté pasárselas por parámetros sin declararlas globales, pero tenía el problema de que cargaba la función sin llamar al evento...No sé cómo solucionar este problemilla (de lo poco que he visto en Python, en el cual también surge ésto, he imagino que en el resto de lenguajes, se solucionaba con lambda:funcion(), pero en JS no he encontrado nada parecido)
+		-Contador: para ir dando diferentes id a los elementos de formulario que se vayan generando
+		-Una variable que apunta a la tabla dentro del formulario donde se van a ir incluyendo los elementos de formularios creados.
+	-Dos variables, que apuntan a cada uno de los input que me servirán para dar efectos de bordeo de los botones y cambio de la forma del cursor al pasar por cada uno de los input. Apunto a input en general y no más específica ya que el botón de crear el botón de envío de formulario está en un div diferente al resto, y si quiero que le afecte a él también (como es el caso) debo referirme en general.
+	Como son un conjunto de input se emplea querySelectorAll que lo que hace es almacenar en una matriz los input. Por ello, para poner cada uno de ellos a la espera de un evento, se necesita recorrer la matriz.
+	-Dos ciclos for que recorren la matriz de input, uno de ellos para poner a la espera los input para la opción de marcado de botón y otro para desmarcar el botón.
+	-Esperas al evento onclick de cada uno de los botones que permiten la generación del formulario.
+	Al desencadenarse un evento en concreto, llamará a la función pertinente que realizará su trabajo.
+3. Funciones
+	-funciones marcar_boton y desmarcar_boton. Hay que pasarle por parámetro el objeto e ya que se desea hacer target sobre él, debido a que queremos hacer algo sobre un elemento que está incluído en una matriz. Dentro de estas funciones hay un conjunto de condicionales que lo que hacen es, por ejemplo if(e.target==id_del_elemento){document.querySelector("elemento").style.cursor="pointer";}. Así para cada elemento de la matriz sobre el que se quiere actuar.
+	-resto de funciones para la creación de formulario:
+		. Generar campo texto: Para todas las preguntas al usuario he empleado prompt, que permite almacenar en una variable la respuesta.
+		Se va almacenando todo en una variable cadena, que concantena lo que había antes y el nuevo código. Al principio no cree esta cadena he intenté hacerlo como elemento_formulario.innerHTML=elemento_formulario.innerHTML+"nuevo codigo". Problema-> Si no cierras una etiqueta porque no lo deseas, por ejemplo <tr> quería abrirla al principio y tras muchas concatenaciones cerrarla, con .innerHTML no podía porque si no lo cierras, lo cierra ella automáticamente. Por ello decidí meterlo todo en una cadena que lo concateno al final como: elemento_formulario.innerHTML=elemento_formulario.innerHTML + cadena + "</tr>";
+		Contador permite dar un id distinto a cada elemento. Con condicionales almacenamos respuestas para especificar como campo requerido o no.
+	El resto de funciones siguen un patrón similar (se encuentra explicado mediante comentarios en el propio código). Algunos necesitan de un ciclo for para recorrer la matriz donde se han almacenado respuestas (por ejemplo, en la lista, como el usuario mete los elementos de la misma, decidí almacenar sus respuestas en una matriz y luego recorrerla con un bucle for).
+	En los campos exclusivos, el name para ambos debe ser el mismo. He decidido ponerle la variable de name='label_texto' que es el tema que ha especificado el usuario (para que al hacer el submit, lo que se envíe tenga algo de sentido y se pueda interpretar).
+	En los campos no exclusivos, el name deber ser diferente para permitir marcar más de una opción. He decidido ponerle la variable de name='label_texto+contador' que es el tema que ha especificado el usuario y un número que varía a cada vuelta del bucle (para que al hacer el submit, lo que se envíe tenga algo de sentido, pero diferente, ya que si no no se podrían seleccionar varias opciones).
+	
+He encontrado algún fallo del tipo si te equivocas al escoger un campo y en el prompt cancelas, se genera automáticamente un campo de tipo null que no sé evitar. No es un gran problema, ya que a no tener name no viajaría al darle al submit, pero me hubiese gustado que no apareciese.
+	
+En el método del formulario he usado get para observar que todos los elementos del formulario son enviados (mirando la barra del navegador). No he especificado ninguna action en el formulario, ya que no va a ser enviado a ningún sitio.
+
+CSS
+Una hoja de estilos para darle un poco de "forma a la web". Decidí hacerla externa para no saturar aun más el head del HTML.
+		
+		
+

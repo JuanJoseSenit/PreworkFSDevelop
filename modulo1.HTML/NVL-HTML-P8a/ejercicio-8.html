@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+</head>
+
+<body>
+	<a name="comienzo"></a>
+	<h1>Esto es una etiqueta h1. Por lo tanto, es un elemento de bloque que ocupa todo el espacio del flujo de renderizado</h1>
+    <h2>Ves, empieza en otro bloque, y no a continuación!! Este h2 también es un elemento de bloque</h2>
+    
+    <img src="ardilla.jpg">
+    <input type="button" value="Añadir">
+    <p>La foto y el botón son elementos de línea, por ello salen seguidos. Al añadir este texto, que es un párrafo, se podruce un salto de linea, porque un párrafo es un elemento de bloque</p>
+    <img src="ardilla.jpg"><br>
+    <input type="button" value="Añadir">
+    <input type="checkbox">
+    <p>Al poner dos elementos de línea seguidos, con la etiqueta br se puede hacer un salto de linea entre elementos. Como al botón añadir no le he puesto br, el botón y el checkbox aparecen seguidos</p>
+    <a href="#comienzo">Comienzo</a>
+    <a href="#final">Final</a>
+    <p>Con las anclas, al ser elementos de línea, aparecen seguidos (comienzo y final) Para que queden mejor, es posible anidarlas en listas</p>
+    <ul>
+    	<li>
+        	<a href="#comienzo">Comienzo</a>
+    	</li>
+        <li>
+        	<a href="#final">Final</a>
+        </li>
+    </ul>
+    <p>Muchas veces, en HTML5 se suele usar la etiqueta figure (elemento de bloque) en donde en su interior se situa la imagen y un figcaption</p>
+    <figure>
+    	<img src="ardilla.jpg">
+        <figcaption>Esto es una etiqueta figcaption para poner pie de imagen.No aparece al lado de la imagen(e.línea) porque figcaption es de bloque</figcaption>
+    </figure>
+    <figure>
+    	<img src="ardilla.jpg">
+        <figcaption>Esto es una etiqueta figcaption para poner pie de imagen.</figcaption>
+    </figure>
+    
+    <p>La etiqueta <strong>strong</strong> es de linea, por lo que se puede emplear dentro del párrafo sin que se produzca un salto</p>
+    <p>Lo mismo ocurre con <date>27/12/2019</date>, date es un elemento de línea</p>
+    <footer>
+    	<p>Esto es un footer, donde se suele colocar el teléfono y una pequeña referencia 
+        <small>Derechos reservados</small></p><address>Tfn:56721674617</address>
+        <p>La etiqueta small es de línea al igual que strong, pero address no, por ello, salta del línea como elemento de bloque que es</p>
+    		
+    </footer>
+    
+	<a name="final"></a>   
+</body>
+</html>

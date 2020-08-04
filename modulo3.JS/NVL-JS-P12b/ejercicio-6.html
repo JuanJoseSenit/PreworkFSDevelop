@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+
+<script>
+function comprobar_par_impar(numero){
+	if(numero%2==0){
+		return true;
+		}
+	else{
+		return false;
+		}
+	}
+
+var numero_aleatorio;
+var matriz=[];
+for(var i=0;i<50;i++){
+	numero_aleatorio=Math.floor((Math.random() * 100) + 1);
+	matriz.push(numero_aleatorio);
+	
+	}
+var matriz_pares=[];
+var matriz_impares=[];
+var resultado;
+for(var i=0;i<matriz.length;i++){
+	resultado=comprobar_par_impar(matriz[i]);
+	if(resultado==true){
+		matriz_pares.push(matriz[i]);
+		}
+	else{
+		matriz_impares.push(matriz[i]);
+		}
+	
+	}
+
+</script>
+</head>
+
+<body>
+	<script>
+    	document.write("Los 50 números generados aleatoriamente son : " + matriz + "<br>");
+		document.write("Los " + matriz_pares.length + " números pares son : " + matriz_pares + "<br>") ;
+		document.write("Los " + matriz_impares.length + "números impares son : "  + matriz_impares + "<br>");
+    </script>
+</body>
+</html>

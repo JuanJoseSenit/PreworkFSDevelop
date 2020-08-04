@@ -1,0 +1,32 @@
+HTML
+En el head creo un link que conecta el esqueleto de la web(HTML) con la hoja de estilos que le dará forma. Además puse un título para que en la pestaña del navegador aparezca dicho título.
+Respecto al body:
+1. Creo un header, en el cual incluyo un título (h1) y subtítulos (h2) agrupados en un hgroup.
+2. En la sección: (distribuyo en contenido en tres grandes div que contienen cada una de las columnas de la web).
+	2.1 En el primero de ellos incluyo una lista ordenada con los títulos de los post de la columna central. Cada elemento de la lista contiene una etiqueta <a href="">(nombre artículo)</a> que permite clickear y nos dirige al post en cuestión.
+	2.2 En el segundo de ellos incluyo los post, almacenados cada uno de ellos en un div, que disponen de:
+		Una etiqueta a para que los links nos lleven a ese punto.
+		Una etiqueta h3 con el título de cada post.
+		Una etiqueta de párrafo con el contenido del post.
+	2.3 En el tercero, dos bloques con más post (destacados del mes y la semana) y un formulario que permite a los ususarios seleccionar cual de los post quieren que se incorporen como favoritos.
+	El formulario está organizado en una tabla de 6 filas y 2 columnas. En campo de nombre y apellido son input de tipo texto,el email es de tipo email (que realiza verificación), un select que incluye todos los post y que se despliega para que el usuario escoja el que más le guste y un área de texto para que den su opinión. Todos los campos son obligatorios excepto la opinión (si un campo obligatorio no es rellenado y se aprieta enviar, se nos avisa de que falta completar algún campo).
+3. En el footer: Contiene quién ha realizado la web, un link que nos lleva a la web de donde se extrajo la información de los post y un link de tipo ancla que nos devuelve a la parte superior de la web.
+
+CSS
+1.body
+	El body es una imagen de gran resolución que es incorporada con la propiedad background-image por medio de una url.
+2.header
+	2.1 El título (h1) ha sido centrado y encapsulado usando el ancho en porcentaje y un margin auto. La tipografía, color y tamaño de las letras también han sido manipuladas. Se le da un padding de 10px para separar las letras de su contenedor, y un degradado del fondo con la propiedad linear-gradient del fondo (es importante incorporar -webkit- y -moz- para que no surjan problemas a la hora de la visualización en el navegador).
+	2.2 El subtítulo (h2): la fuente del texto ha sido modificada, se le ha dado un padding por la izquierda para separar el texto del borde de la página y un borde inferior discontinuo por estética.
+3. section
+	Para que la página quede más vistosa, las tres grandes columnas han sido metidas en este contenedor, que se le da un 80% de ancho y un margen auto para centrarlo (así conseguimos un 10% de la imagen de fondo por cada lado). Además un borde discontinuo y un color de fondo opaco (observé que el último número del color rgba es la opacidad. Le puse un 0.95 para que se viese ligeramente el fondo pero no me gustaba).
+	La propiedad overflow:hidden la incorporé a posteriori, cuando vi que al poner las tres columnas seguidas se salían de section. Entendí que esta propiedad hace algo como llevarse section al fondo y dejar lo demás encima. Este problema puede venir al romper los bloques con la propiedad float (necesaria si queremos poner los tres div de seguido, ya que si no se pone uno debajo de otro, como es lógico, son estructuras de bloque).
+4. Con la clase correspondiente a cada columna se les dio su distribución y tamaño dentro de section.
+	4.1 La columna de links un 20% del ancho de su contenedor section (la más estrecha porque es la que contiene menos información). Se le da un color al fondo, un borde y una serie de márgenes para separar contenidos. Además de la propiedad float:left que envía esta columna a la izquierda de forma flotante, haciendo que todo lo que venga detrás se sitúe a la derecha.
+	4.2 La columna central (post) tiene un ancho del 38% de su contenedor section. Se le dan propiedades, tales como color de fondo, borde, márgenes.
+	4.3 La columna derecha tiene un ancho del 38% y características similares a la central.
+	(la primera y segunda columna contienen un margin derecho para separar estos div unos de otros).
+5. Con .segunda_columna>div y .tercera_columna>div accedemos a los hijos div directos de las columnas correspondientes, Con este selector le damos la forma al recinto donde se encuentra cada uno de los post.
+6. Todos los títulos de los post al ser etiquetas h3 se modificaron con este selector.
+7. La tabla que contiene el formulario centrada y se le ha dado un borde general. Aquí tuve un problema, porque el desplegable que permite al usuario escoger un post como favorito, se salía de la web (era un nombre muy largo). Lo resolví usando el selector .tupost y dándole un ancho de 160px (un poco a ojo, hasta que el tamaño de todos los cuadros de texto quedó igual).
+8 El footer ha sido modificado para que el fondo sea de un gris no totalmente opaco, se ha dadp color, forma y tamaño al "botón" (ya que es un siple ancla) que nos dirige a la zoma superior de la web.

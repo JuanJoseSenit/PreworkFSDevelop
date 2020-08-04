@@ -1,0 +1,27 @@
+
+
+He ido realizando cada parte de la web, haciendo commit para almacenar los cambios, por si tenía que volver a alguno en concreto.
+
+Pasos a seguir para la elaboración de la web:
+1. Creé el cuerpo del documento html con sus etiquetas básicas, <htlm>, <head> y <body> incorporando en el head la etiqueta meta charset y el title que será lo que se verá en la barra de navegación del navegador.
+2.En el body del archivo fui creando la web.
+3.En el header puse el título con h1 y un subtítulo con h2 (al ser dos etiquetas h seguidas, las agrupé con hgroup).
+4.Cree una zona de navegación, el nav, donde puse una lista de elementos ordenados, con los que, al pulsar sobre ellos, nos redirigiese a la zona de la web escogida. Para ello empleé las anclas.
+5.En la section, cada una de las partes las agrupé por div
+5.1. En quienes somos (empleando para el título un h3), hice una pequeña descripción empleando párrafos. Para la localización, agrupé las tres en una lista desordenada y, tanto a la imagen como a la dirección les puse un vínculo a google maps para ver exactamente la ubicación. Las imágenes fueron modificadas en tamaño para que fuesen iguales usando atributos. 
+Para los miembros de la empresa usé una lista desordenada.
+5.2. En nuestros servicios, decidí hacer una tabla en la cual se muestren tarifas y lo que incluyen dichas tarifas. Empleé símbolos para marcar las casillas.
+5.3. En precios y tarifas incluí dos tablas, una con los precios sin bono y otra con bono. Les puse un encabezado con caption.
+(Tanto la tabla del 5.2 como la del 5.3 poseen un id y una class por si son necesarias en un futuro)
+5.4. En contacto creé un formulario con en método get (ya que quería ver en la barra del navegador lo que se enviaría al completar el formulario) y un action inventado que no existe, pero que será necesario.
+Cada elemento del formulario está almacenado en un div para ordenar la web
+Nombre y apellido son input de tipo texto, en los cuales el label for debe coincidir con su respectivo id del input. Ambos campos los puse de carácter obligatorio (este requisito entre label e input (o select o textarea...) es indispensable para todos los casos).
+La edad es un input de tipo numérico que empieza en 18 y termina en 110.
+El teléfono es un input numérico.
+El email es un input de tipo email(tiene la ventaja de que verifica si es un email o no y nos ahorra programarlo en js)
+El bono es un select que da la opción de si  no(es un desplegable).
+Preguntas y sugerencias es un textarea para que el usuario pueda escribir.
+El formulario debe acabar con un botón, en este caso de tipo submit.
+6.Para finalizar creé un footer o pie de página para cerrar la web, donde incluí un número de teléfono
+
+Esto es un breve resumen de los pasos que he seguido para realizar el ejercicio.

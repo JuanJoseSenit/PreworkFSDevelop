@@ -1,0 +1,318 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Generador de formularios</title>
+<link href="estilos_generador_formularios.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+
+	$(document).ready(function() {
+		//-----------objetos creados con querySelector---------------------
+		var texto=document.querySelector(".texto");
+		var numero=document.querySelector(".numero");
+		var email=document.querySelector(".email");
+		var lista=document.querySelector(".lista");
+		var exclusivas=document.querySelector(".exclusivas");
+		var no_exclusivas=document.querySelector(".no_exclusivas");
+		var boton_enviar_formulario=document.querySelector(".enviar");
+		
+		window.elemento_formulario=document.querySelector("table"); //es una variable global, entendida por todas las funciones
+																		  //no hace falta pasarla por argumento. Usamos windows en lugar de var 																		  //porque estamos haciendo una variable global dentro de una función
+		
+		window.contador=0;
+		var marcarboton=document.querySelectorAll("input");  //almaceno todos los input en una matriz
+		var desmarcarboton=document.querySelectorAll("input");
+		
+		
+		//-------------------esperas de hacer click---------------------------
+		for(var i=0;i<marcarboton.length;i++){
+			marcarboton[i].addEventListener("mouseover",marcar_boton,false);  //bucle para recorrer la matriz y poner todos a la espera
+		}
+		for(var i=0;i<desmarcarboton.length;i++){
+			marcarboton[i].addEventListener("mouseout",desmarcar_boton,false);  //bucle para recorrer la matriz y poner todos a la espera
+		}
+		texto.addEventListener("click",generar_campo_texto,false);
+		numero.addEventListener("click",generar_campo_numero,false);
+		email.addEventListener("click",generar_campo_email,false);
+		lista.addEventListener("click",generar_campo_lista,false);
+		exclusivas.addEventListener("click",generar_campo_exclusivas,false);
+		no_exclusivas.addEventListener("click",generar_campo_no_exclusivas,false);
+		boton_enviar_formulario.addEventListener("click",generar_boton,false);
+	});
+</script>
+<script>
+	//-----------------------------funciones---------------------------------
+	function marcar_boton(e){
+		if(e.target==texto){  //IMPORTANTE e.target==id del elemento
+			document.querySelector(".texto").style.cursor="pointer"; //seleccionamos el elemento con querySelector y le aplicamos el cambio
+			document.querySelector(".texto").style.borderColor="blue";
+			}
+		else if(e.target==numero){
+			document.querySelector(".numero").style.cursor="pointer";
+			document.querySelector(".numero").style.borderColor="blue";
+			}
+		else if(e.target==e_mail){
+			document.querySelector(".email").style.cursor="pointer";
+			document.querySelector(".email").style.borderColor="blue";
+			}
+		else if(e.target==lista){
+			document.querySelector(".lista").style.cursor="pointer";
+			document.querySelector(".lista").style.borderColor="blue";
+			}
+		else if(e.target==no_exclusivas){
+			document.querySelector(".no_exclusivas").style.cursor="pointer";
+			document.querySelector(".no_exclusivas").style.borderColor="blue";
+			}
+		else if(e.target==exclusivas){
+			document.querySelector(".exclusivas").style.cursor="pointer";
+			document.querySelector(".exclusivas").style.borderColor="blue";
+			}
+		else if(e.target==enviar){
+			document.querySelector(".enviar").style.cursor="pointer";
+			document.querySelector(".enviar").style.borderColor="red";
+			}
+		}
+	
+	function desmarcar_boton(e){
+		if(e.target==texto){  //IMPORTANTE e.target==id del elemento
+			document.querySelector(".texto").style.borderColor="";
+			}
+		else if(e.target==numero){
+			document.querySelector(".numero").style.borderColor="";
+			}
+		else if(e.target==e_mail){
+			document.querySelector(".email").style.borderColor="";
+			}
+		else if(e.target==lista){
+			document.querySelector(".lista").style.borderColor="";
+			}
+		else if(e.target==no_exclusivas){
+			document.querySelector(".no_exclusivas").style.borderColor="";
+			}
+		else if(e.target==exclusivas){
+			document.querySelector(".exclusivas").style.borderColor="";
+			}
+			else if(e.target==enviar){
+			document.querySelector(".enviar").style.borderColor="";
+			}
+		}
+	
+	function generar_campo_texto(){
+		var cadena="";
+		cadena = cadena + "<tr>";  //cadena en la cual se va a almacenar el html que luego pondremos sobre la web con innerHTML
+		contador=contador+1;  //contador que dará el id exclusivo a cada elemento del formulario
+		var label_texto=""+prompt("Introduzca la etiqueta que desea para el campo de texto: ");
+		var requerido=""+prompt("¿Quieres que sea un campo de tipo obligatorio (Y/y para sí. Cualquier otra tecla para no)?");
+		if(requerido=="Y" || requerido=="y"){
+		
+			cadena=cadena+ "<td><label for='"+ contador+"'>"+ label_texto + "*: </label></td>";
+			cadena=cadena+ "<td><input type='text' name='etiqueta texto' required id='"+contador+ "'> </td>";
+		
+		}
+		else{
+			cadena=cadena+ "<td><label for='"+ contador+"'>"+ label_texto + "</label></td>";
+			cadena=cadena+ "<td><input type='text' name='etiqueta texto id='"+contador+ "'> </td>";
+		}
+		elemento_formulario.innerHTML=elemento_formulario.innerHTML + cadena + "</tr>";
+	    
+		
+	}
+	function generar_campo_email(){
+		var cadena="";
+		contador=contador+1;
+		cadena = cadena + "<tr>";
+		var label_texto=""+prompt("Introduzca la etiqueta que desea para el campo de email: ");
+		var requerido=""+prompt("¿Quieres que sea un campo de tipo obligatorio? (Y/y para sí. Cualquier otra tecla para no)");
+		if(requerido=="Y" || requerido=="y"){
+		
+			cadena=cadena+ "<td><label for='"+ contador+"'>"+ label_texto + "*: </label></td>";
+			cadena=cadena+ "<td><input type='email' name='email' required id='"+contador+ "'> <br></td>";
+		}
+		else{
+			cadena=cadena+ "<td><label for='"+ contador+"'>"+ label_texto + ": </label></td>";
+			cadena=cadena+ "<td><input type='email' name='email' id='"+contador+ "'> </td>";
+		}
+		
+		elemento_formulario.innerHTML=elemento_formulario.innerHTML + cadena + "</tr>";
+	}
+	
+	function generar_campo_numero(){
+		var cadena="";
+		contador=contador+1;
+		cadena = cadena + "<tr>";
+		var label_texto=""+prompt("Introduzca la etiqueta que desea para el campo número: ");
+		var rango=""+prompt("¿Desea especificar rango numérico?(Y/y para sí. Cualquier otra tecla para no)")
+		if(rango=="Y" || rango=="y"){
+			var minimo=prompt("Valor mínimo");
+			var maximo=prompt("Valor máximo");
+			}
+		var mensaje=""+prompt("¿Desea especificar un mensaje o placeholder? (Y/y para sí. Cualquier otra tecla para no)");
+		if(mensaje=="Y" || mensaje=="y"){
+			var placeholder=prompt("Introduzca el mensaje");
+			}
+		var requerido=""+prompt("¿Quieres que sea un campo de tipo obligatorio (Y/y para sí. Cualquier otra tecla para no)?");
+		if(requerido=="Y" || requerido=="y"){
+		
+			cadena=cadena+ "<td><label for='"+ contador+"'>"+ label_texto + " *: </label></td>";
+			cadena=cadena+ "<td><input type='number' name='etiqueta numero' required id='"+contador+ "' min='"+ minimo + "' max='"+maximo+"' placeholder='"+placeholder+"' ></td>" ;
+		}
+		else{
+			cadena=cadena+ "<td><label for='"+ contador+"'> " + label_texto + " :</label></td>";
+			cadena=cadena+ "<td><input type='number' name='etiqueta numero' id='"+contador+ "' min='"+ minimo + "' max='"+maximo+"' placeholder='"+placeholder+"' ></td>" ;
+		}
+		elemento_formulario.innerHTML=elemento_formulario.innerHTML + cadena +"</tr>";
+		}
+		
+	function generar_campo_lista(){
+		contador=contador+1;
+		var label_texto=""+prompt("Introduzca el tema del desplegable ");
+		var cadena="";
+		
+		var requerido=""+prompt("¿Quieres que sea un campo de tipo obligatorio? (Y/y para sí. Cualquier otra tecla para no)");
+		if(requerido=="y" || requerido=="Y"){
+			cadena = cadena + "<tr> <td><label for='"+ contador+"'>"+ label_texto + " *: </label></td>";
+			cadena = cadena+"<td><select name='lista' required id='"+contador+"'>";
+			}
+		else{
+			cadena = cadena + "<tr> <td><label for='"+ contador+"'>"+ label_texto + " : </label></td>";
+			cadena = cadena+"<td><select name='lista' id='"+contador+"'>";
+			}
+		cadena=cadena+"<option disabled value='' selected>"+label_texto+"</option>";
+		
+		var matriz_elementos=[];
+		var numero_elementos=prompt("¿Cuantos elementos desea en la lista?");
+		var pregunta;
+		for(var i=0;i<numero_elementos;i++){
+		    pregunta=""+prompt("Introduzca el elemento " + (i+1));
+			matriz_elementos.push(pregunta);
+			cadena = cadena + "<option  value='"+(i+1)+"'>"+matriz_elementos[i]+"</option>";
+			}
+		cadena = cadena + "</select></td>";
+		elemento_formulario.innerHTML = elemento_formulario.innerHTML + cadena +"</tr>";
+			
+		
+	}
+	
+	function generar_campo_exclusivas(){   //deben compartir el mismo name para que solo se pueda marcar 1 circulito
+		var label_texto=""+prompt("Introduzca el tema de la lista exclusiva ");
+		var cadena="";
+		var requerido=""+prompt("¿Quieres que sea un campo de tipo obligatorio? (Y/y para sí. Cualquier otra tecla para no)");
+		if(requerido=="y" || requerido=="Y"){
+			cadena=cadena+"<tr><td><p>"+ label_texto+" * : </p></td></tr><tr>";
+			cadena = cadena + "<tr>";
+			var matriz_elementos=[];
+			var numero_elementos=""+prompt("¿Cuantos elementos desea en la lista excluyente?");
+			var pregunta;
+			//contador=contador+1;  //contador fuera del for para que solo haya un valor y sea el del name
+			for(var i=0;i<numero_elementos;i++){
+			
+		   	 	pregunta=""+prompt("Introduzca el elemento " + (i+1));
+				matriz_elementos.push(pregunta);
+				cadena = cadena + "<tr><td><input type='radio' required name='"+label_texto+"' value='"+matriz_elementos[i]+"' >"+matriz_elementos[i]+"</td></tr>";
+			}
+		
+		}
+		else{
+			cadena=cadena+"<tr><td><p>"+ label_texto+"  : </p></td></tr><tr>";
+			cadena = cadena + "<tr>";
+			var matriz_elementos=[];
+			var numero_elementos=""+prompt("¿Cuantos elementos desea en la lista excluyente?");
+			var pregunta;
+			contador=contador+1;  //contador fuera del for para que solo haya un valor y sea el del name
+			for(var i=0;i<numero_elementos;i++){
+			
+		    	pregunta=""+prompt("Introduzca el elemento " + (i+1));
+				matriz_elementos.push(pregunta);
+				cadena = cadena + "<tr><td><input type='radio' name='"+label_texto+"' value='"+matriz_elementos[i]+"' >"+matriz_elementos[i]+"</td></tr>";}
+			
+			}
+		elemento_formulario.innerHTML = elemento_formulario.innerHTML + cadena +"</tr>";
+		}
+		
+		function generar_campo_no_exclusivas(){   //NO deben compartir el mismo name para que se puedan marcar varios cuadrados
+		var label_texto=""+prompt("Introduzca el tema de la lista no exclusiva");
+		var cadena="";
+		var requerido=""+prompt("¿Quieres que sea un campo de tipo obligatorio? (Y/y para sí. Cualquier otra tecla para no)");
+		if(requerido=="y" || requerido=="Y"){
+			cadena=cadena+"<tr><td><p>"+ label_texto+" * : </p></td></tr><tr>";
+			cadena = cadena + "<tr>"
+			var matriz_elementos=[];
+			var numero_elementos=""+prompt("¿Cuantos elementos desea en la lista excluyente?");
+			var pregunta;
+			
+			for(var i=0;i<numero_elementos;i++){
+				contador=contador+1;  //contador dentro del for para que se puedan marcar varias casillas
+		   		 pregunta=""+prompt("Introduzca el elemento " + (i+1));
+				matriz_elementos.push(pregunta);
+				cadena = cadena + "<tr><td><input type='checkbox' required name='"+label_texto + contador+"' value='"+matriz_elementos[i]+"' >"+matriz_elementos[i]+"</td></tr>";
+			}
+			}
+		else{
+			cadena=cadena+"<tr><td><p>"+ label_texto+" : </p></td></tr><tr>";
+			cadena = cadena + "<tr>"
+			var matriz_elementos=[];
+			var numero_elementos=""+prompt("¿Cuantos elementos desea en la lista excluyente?");
+			var pregunta;
+			
+			for(var i=0;i<numero_elementos;i++){
+				contador=contador+1;  //contador dentro del for para que se puedan marcar varias casillas
+		   		 pregunta=""+prompt("Introduzca el elemento " + (i+1));
+				matriz_elementos.push(pregunta);
+				cadena = cadena + "<tr><td><input type='checkbox' name='"+label_texto+contador+"' value='"+matriz_elementos[i]+"' >"+matriz_elementos[i]+"</td></tr>";
+			}
+			}
+			elemento_formulario.innerHTML = elemento_formulario.innerHTML + cadena +"</tr>";
+		
+		}
+		function generar_boton(){
+			contador=contador+1
+			var cadena="";
+			cadena = cadena + "<tr> <td></td>";
+			var respuesta=prompt("¿Quiere concluir la creación del formulario?(Y/y para sí. Cualquier otra tecla para no)")
+				if(respuesta=="y" || respuesta=="Y"){
+					var valor_boton=prompt("Mensaje del botón de envío de formulario");
+					cadena=cadena+"<td><input type='submit' id='"+contador+"' value='"+valor_boton+"'></td>";
+					}
+				elemento_formulario.innerHTML = elemento_formulario.innerHTML + cadena +"</tr>";
+					
+			}
+	
+	
+
+</script>
+</head>
+
+<body>
+	<header>
+    	<h1>GENERADOR DE FORMULARIOS</h1>
+    </header>
+    <section>
+		<h3>1. SELECCIONE LOS ELEMENTOS DE FORMULARIO QUE DESEA CREAR</h4>
+		<div id="conjunto_botones" class="conjunto_botones">
+			<input type="button" id="texto" class="texto" value="Campo de texto"><br><br>
+    		<input type="button" id="numero" class="numero" value="Campo numérico"><br><br>
+    		<input type="button" id="e_mail" class="email" value="Campo email"><br><br>
+    		<input type="button" id="lista" class="lista" value="Campo lista de selección"><br><br>
+    		<input type="button" id="no_exclusivas" class="no_exclusivas" value="Campo opciones no exclusivas"><br><br>
+    		<input type="button" id="exclusivas" class="exclusivas" value="Campo opciones exclusivas"><br><br>
+
+		</div>
+        <h3>2. GENERE EL BOTÓN DE ENVÍO DE FORMULARIO</h4>
+        <div id="boton_envio" class="conjunto_botones">
+        	<input type="button" id="enviar" class="enviar" value="Generar botón de envío de formulario"><br></br>
+        </div>
+     
+
+<h3>3. FORMULARIO GENERADO</h3>
+
+<form id="formulario" class="formulario" method="get">
+	<table>
+    
+    </table>
+</form>
+</section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1{
+	width:30%;
+	background-color:#F00;
+	color:#FFF;
+	margin:5px auto;
+	text-align:center;
+	border-radius:8px;
+	}
+h2{
+	border-bottom: dashed #FF0000 3px ;
+	}
+div{
+	width:60%;
+	background-color:#900;
+	margin:20px auto;
+	border:groove 10px #996600;
+	border-radius:8px;
+	
+	}
+p{
+	padding-left:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	}
+ol{
+	text-align:center;
+	color:#FFF;}

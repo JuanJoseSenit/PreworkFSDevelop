@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-image:url(https://i.pinimg.com/236x/ae/94/48/ae94481e07fd39a444cb27a03c31d621.jpg);
+	}
+h1{
+	font:bold 1.5em Verdana, Geneva, sans-serif;
+	background-color:#3FF;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	
+	}
+.conjunto_botones{
+	
+	width:30%;
+	background-color:#3FF;
+	padding:20px;
+	margin-left:5%;
+	border: solid 2px #3CF;
+	border-radius:8px;
+	}
+.conjunto_botones input{
+	width:85%;
+	/*margin:auto;*/
+	padding-top:10px;
+	padding-bottom:10px;
+	background-color:#3CF;
+	
+	}
+h3{
+	color:#3CF;
+	border-bottom:dashed 3px #3CF;
+	padding-left:20px;
+	}
+	

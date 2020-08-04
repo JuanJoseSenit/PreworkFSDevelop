@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+#cuerpo{
+	width:70%;
+	margin:auto;
+	border:dashed 5px #fabada;
+	margin-top:10px;
+	margin-bottom:10px;
+	}
+h1{
+	background-color:#fabada;
+	text-align:center;
+	padding-bottom:10px;
+	padding-top:10px;
+	color:white;
+	border-radius:8px;
+	}
+h2{
+	color:#fabada;}
+.padding_global{
+	padding-left:10px;
+	padding-right:10px;}
+.imagen_fabada{
+	
+	width:1000px;
+	margin:auto;}
+img{
+	width:300px;
+	padding-left:350px;
+	padding-right:350px;
+	padding-bottom:20px;
+	padding-top:20px;
+	
+	}
+[data-vegetal]{
+	color:green}
+[data-carnico]{
+	color:#F00;}
+.otros{
+	color:blue;}
+section h3{
+	text-decoration:underline;
+	font-style:italic;}
+div.consejos p{
+	font-style:italic;}
+.tabla{
+	border:solid 2px #fabada;}
+.tabla td{
+	padding-left:10px;
+	padding-right:10px;}
+nav{
+	border-bottom:solid 1px #fabada;
+	border-top:solid 1px #fabada;
+	}
+
+

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+</head>
+
+<body>
+	<header>
+    	<hgroup>
+    		<h1>Formulario</h1>
+        	<h2>Encuesta de satisfacción</h2>
+        </hgroup>
+    </header>
+    <section>
+    	<form name="formulario" id="formulario" class="formulario" method="get" action="miservidor.php">
+    	<div>
+        	<label for="CP">Código Postal*</label>
+            <input type="number" id="CP" placeholder="5 valores numéricos" width="50" required name="CP">
+        </div><br>
+        <div>
+        	<label for="satisfaccion">Nivel de satiscacción</label>
+            <select id="satisfaccion" name="satisfaccion">
+            	<option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+             </select>
+             
+        </div><br>
+        <div>
+        	<label for="email">Email*</label>
+            <input type="email" id="email" required name="email">
+        </div><br>
+        <div>
+        	<label for="positivo">Puntos positivos</label>
+            <textarea id="positivo" name="positivos" ></textarea>
+        </div><br>
+        <div>
+        	<label for="negativo">Puntos negativos</label>
+            <textarea id="negativo" name="negativos"></textarea>
+        </div><br>
+        <div>
+        	<label for="calidad">Calidad</label>
+            	<select id="calidad" name="calidad">
+            		<option value="4">excelente</option>
+                	<option value="3">bueno</option>
+                	<option value="2">malo</option>
+                	<option value="1">pésimo</option>
+            	</select>
+                <input type="range" id="calidad" min="1" max="4" name="calidad_barra">
+                 <small>1:pésimo 2:malo 3:bueno 4:excelente</small>
+        </div><br>
+        <div>
+        	<label for="precio">Precio</label>
+            	<select id="precio" name="precio">
+            		<option value="4">excelente</option>
+                	<option value="3">bueno</option>
+                	<option value="2">malo</option>
+                	<option value="1">pésimo</option>
+            	 </select>
+                 <input type="range" id="precio" min="1" max="4" name="precio_barra">
+                 <small>1:pésimo 2:malo 3:bueno 4:excelente</small>
+        
+        </div><br>
+        
+        <input type="submit" id="boton" class="boton" value="Enviar">
+        </form>
+        <div>
+        	<p><small>* Estos campos son obligatorios</small></p>
+        </div>
+    
+    </section>
+</body>
+</html>

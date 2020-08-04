@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script>
+
+
+
+function calcular_primos(n){ //paso por parámetro lo que mete el usuario
+	var matriz=[];
+	var es_primo=true;
+	var contador=0;
+	for(var i=2;contador<n;i++){  //primer ciclo que recorre los números desde 2 hasta la condición 
+		for(var j=2;j<i;j++){  //segundo bucle que deja fuera la unidad y el propio número para comprobar que no es primo
+			if(i%j==0){ //como he inicializado es_primo en true, en cuanto entre en este if, cambia a false, es decir, ya no es primo
+				es_primo=false;
+				}
+			}
+		if(es_primo!=false){
+		matriz.push(i); //matriz que va añadiendo los primos
+		contador=contador+1;
+		
+			}
+		es_primo=true;//devuelve a true el valor de es_primo, porque de no ponerlo, en cuanto salga un no primo, el valor queda por defecto en false
+		}
+		
+		return matriz;	//retorna la matriz con los números primos
+	}
+	
+var numeros=prompt("Introduzca número de primos que desea conocer"); //El usuario escoge el número que desea conocer
+var resultado=calcular_primos(numeros);
+
+
+
+
+
+</script>
+</head>
+
+<body>
+<script>
+	document.write("Los " + numeros + " primeros números primos son: " +  resultado);
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    
+
+	var pelis=[["Up","animación"],["El señor de los anillos","acción"],["Regreso al futuro","acción"],["Los increibles 2","animación"],["Ocho apellidos catalanes","comedia"],["Scary Movie","comedia"],["Scream","terror"],["Coco","animación"],["Harry Potter","acción"],["La matanza de Texas","terror"],["El rey león","animación"],["Spiderman","acción"],["Solo en casa","comedia"],["La vida de Bryan","comedia"],["Como Dios","comedia"],["The Ring","terror"],["Aladín","animación"],["Indiana Jones","acción"],["Terminator","acción"],["Toy Story","animación"],["Saw","terror"]];
+	
+	
+	var ul = document.querySelector(".pelis");
+	
+	
+
+
+	for(i=0;i<pelis.length;i++){
+		if(pelis[i][1] == "animación"){
+			ul.innerHTML = ul.innerHTML + '<li>' + pelis[i][0] +' <img src= "animacion.jpg" height="42" width="42"></li>';
+			
+			}
+		else if(pelis[i][1] == "acción"){
+			ul.innerHTML = ul.innerHTML + '<li>' + pelis[i][0] +' <img src= "accion.jpg" height="42" width="42"></li>';
+				
+			}
+		else if(pelis[i][1] == "comedia"){
+			ul.innerHTML = ul.innerHTML + '<li>' + pelis[i][0] +' <img src= "comedia.png" height="42" width="42"></li>';
+				
+			}
+		else if(pelis[i][1] == "terror"){
+			ul.innerHTML = ul.innerHTML + '<li>' + pelis[i][0] +' <img src= "terror.jpg" height="42" width="42"></li>';
+				
+			}
+	
+	}
+	var titulo=document.querySelector("header");
+	var h1=document.createElement("h1");
+	h1.textContent="LISTADO DE PELÍCULAS";
+	titulo.appendChild(h1);
+	 
+
+		
+		
+});
+
+
+</script>
+
+
+</head>
+
+<body>
+	<header>
+    	
+    </header>
+
+    <ul class="pelis">
+
+    
+    </ul>
+</body>
+</html>
+
+	 

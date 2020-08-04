@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script>
+var cadena_dias_semana="Lunes,Martes,Miércoles,Jueves,Viernes,Sábado,Domingo";
+var cadena_ciudades="Madrid.Sevilla.Barcelona.Valencia.Zaragoza.Bilbao.Donosti";
+
+//Primera forma
+var matriz_dias_semana=cadena_dias_semana.split(",");
+var matriz_ciudades=cadena_ciudades.split(".");
+var calendario=[[matriz_dias_semana[0],matriz_ciudades[0]],[matriz_dias_semana[1],matriz_ciudades[1]],matriz_dias_semana[2],matriz_ciudades[2],matriz_dias_semana[3],matriz_ciudades[3],matriz_dias_semana[4],matriz_ciudades[4],matriz_dias_semana[5],matriz_ciudades[5],matriz_dias_semana[6],matriz_ciudades[6]];
+alert(calendario);
+
+//Segunda forma
+var calendario_2 = [[matriz_dias_semana.shift(),matriz_ciudades.shift()], [matriz_dias_semana.shift(),matriz_ciudades.shift()],[matriz_dias_semana.shift(),matriz_ciudades.shift()],[matriz_dias_semana.shift(),matriz_ciudades.shift()],[matriz_dias_semana.shift(),matriz_ciudades.shift()],[matriz_dias_semana.shift(),matriz_ciudades.shift()],[matriz_dias_semana.shift(),matriz_ciudades.shift()]];
+alert(calendario_2);
+</script>
+</head>
+
+<body>
+</body>
+</html>
